@@ -38,7 +38,7 @@ app.post('/sendSms', (req, res) => {
         })
     }
 
-    require(`./gateways/${gateway}`).sendSms(auth, message, sender, receptor, function(result) {
+    require(`./gateways/${gateway}`).sendSms(auth, message, sender, receptor, (result) => {
         if (result) {
             // if result is success
             if (result.status) {
@@ -84,7 +84,7 @@ app.post('/getInfo', (req, res) => {
             msg: "please send all required fields"
         })
     }
-    require(`./gateways/${gateway}`).getInfo(auth, function(result) {
+    require(`./gateways/${gateway}`).getInfo(auth, (result) => {
         if (result) {
             // if result is success
             if (result.status) {
@@ -115,7 +115,7 @@ app.post('/getInfo', (req, res) => {
 })
 
 // gateways list 
-app.get('/gateways', function(req, res) {
+app.get('/gateways', (req, res) => {
     res.send(gateways)
 })
 

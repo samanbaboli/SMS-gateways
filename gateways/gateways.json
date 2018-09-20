@@ -1,0 +1,12 @@
+{
+    "services": {
+    	"kavengar" : {
+	    	"name": "kavengar",
+	    	"localName" : "کاوه نگار",
+	        "developer": "@SamanBaboli",
+	        "website": "http://kavenegar.com",
+	        "logo": "/logos/kavenegar.png",
+	        "country": "IR"
+    	}
+    }
+}

@@ -5,4 +5,4 @@ if you want to add a web service to this project, just fork it and do this instr
 
 Add your web service information to ./gateways/gateways.json
 
-Add yourwebservername.js to './gateways' - it name must be that name what you added to gateways.json file
+Add yourwebservice.js to './gateways' - it name must be that name what you added to gateways.json file

@@ -1,5 +1,5 @@
 # smsGateways
-Using this Node.js project you can send sms using diffrent web services.
+Using this Node.js project you can send sms using different web services.
 
 if you want to add a web service to this project, just fork it and do below instructions:
 

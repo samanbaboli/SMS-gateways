@@ -1,12 +1,13 @@
 {
     "services": {
-    	"kavengar" : {
-	    	"name": "kavengar",
+    	"kavenegar" : {
+	    	"name": "kavenegar",
 	    	"localName" : "کاوه نگار",
 	        "developer": "@SamanBaboli",
 	        "website": "http://kavenegar.com",
 	        "logo": "/logos/kavenegar.png",
-	        "country": "IR"
+	        "country": "IR",
+	        "AuthType" : 1
     	}
     }
 }

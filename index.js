@@ -1,8 +1,8 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-var gateways = require('./gateways/gateways.json');
+var gateways = require('./gateways/gateways.json')
 var app = express()
-const port = 3000;
+const port = 3000
 
 
 // parse application/x-www-form-urlencoded
@@ -15,9 +15,12 @@ app.use(bodyParser.json())
 app.use(express.static('assets'))
 
 
-/**
-  sendSms route
-  You can pass your auth date using auth parametr it can be an object or a string
+/** 
+  @param {string || object} auth
+  @param {string} message
+  @param {string} sender
+  @param {string} receptor
+  @param {string} gateway
 **/
 app.post('/sendSms', (req, res) => {
     const {
@@ -26,14 +29,15 @@ app.post('/sendSms', (req, res) => {
         sender, // optional
         receptor, //required
         gateway // required
-    } = req.body;
+    } = req.body
 
     if (!auth || !message || !receptor || !gateway) {
         res.send({
             status: -1,
-            msg: "please send all required fields"
+            msg: "Please send all required parametrs"
         })
     }
+
     require(`./gateways/${gateway}`).sendSms(auth, message, sender, receptor, function(result) {
         if (result) {
             // if result is success
@@ -62,17 +66,17 @@ app.post('/sendSms', (req, res) => {
             }
         }
     })
-});
+})
 
-/**
-  getInfo route
-  You can pass your auth date using auth parametr it can be an object or a string
+/** 
+  @param {string || object} auth
+  @param {string} gateway
 **/
 app.post('/getInfo', (req, res) => {
     const {
         auth, // required
         gateway // required
-    } = req.body;
+    } = req.body
 
     if (!auth) {
         res.send({
@@ -98,7 +102,7 @@ app.post('/getInfo', (req, res) => {
                     })
                 }
             }
-            // when something wrong happen
+            // when something wrong 
             else {
                 res.send({
                     "status": -3,
@@ -108,15 +112,15 @@ app.post('/getInfo', (req, res) => {
             }
         }
     })
-});
+})
 
 // gateways list 
-app.get('/gateways',function(req,res){
-	res.send(gateways)
+app.get('/gateways', function(req, res) {
+    res.send(gateways)
 })
 
 
 
 
-app.listen(port);
+app.listen(port)
 console.log(`service started at port ${port}`)

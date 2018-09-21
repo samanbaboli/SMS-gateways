@@ -37,6 +37,7 @@ app.post('/sendSms', (req, res) => {
             msg: "Please send all required parametrs"
         })
     }
+    //TODO check gateway is exsist or not
 
     require(`./gateways/${gateway}`).sendSms(auth, message, sender, receptor, (result) => {
         if (result) {

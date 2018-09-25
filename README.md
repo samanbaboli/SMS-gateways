@@ -30,6 +30,6 @@ You can check this types in your client and ask user for token or user pass.
 
 After that:
 
-Add YourWebserviceName.js to './gateways' - it name must be that name what you added to gateways.json file and add this methods:
+Add YourWebserviceName.js to './gateways' - it name must be that name what you added to gateways.json file:
 
  You can use ./gateways/sample.js 

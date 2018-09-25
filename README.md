@@ -38,7 +38,7 @@ Add YourWebserviceName.js to './gateways' - it name must be that name what you a
  
  1. Clone this project
  ```
- git clone https://github.com/samanbaboli/smsGateways.git
+ git clone https://github.com/samanbaboli/SMS-gateways.git
  ```
 2. go to project directory
 3. install dependencies 
@@ -52,9 +52,7 @@ node index.js
 
  * Send SMS
  
-Type : POST
- 
-Route : http://localhost:3000/sendSms
+```POST /sendSms```
  
  
  | Field  | Type |  * | Description |
@@ -67,9 +65,7 @@ auth | string or object  | required  | your auth data(depends on your web servic
 
  * Get account information
  
-Type : POST
- 
-Route : http://localhost:3000/getInfo
+```POST /getInfo```
  
  
  | Field  | Type |  * | Description |

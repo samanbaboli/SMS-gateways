@@ -44,26 +44,14 @@ app.post('/sendSms', (req, res) => {
             // if result is success
             if (result.status) {
                 if (result.status === 200) {
-                    res.send({
-                        "status": 1,
-                        "msg": result,
-                        "success": true
-                    })
+                    res.send({"status": 1,"msg": result,"success": true})
                 } else {
-                    res.send({
-                        "status": -2,
-                        "msg": result,
-                        "success": false
-                    })
+                    res.send({"status": -2,"msg": result,"success": false})
                 }
             }
             // when something wrong happen
             else {
-                res.send({
-                    "status": -3,
-                    "msg": result,
-                    "success": false
-                })
+                res.send({"status": -3,"msg": result,"success": false})
             }
         }
     })
@@ -80,36 +68,21 @@ app.post('/getInfo', (req, res) => {
     } = req.body
 
     if (!auth) {
-        res.send({
-            status: -1,
-            msg: "please send all required fields"
-        })
+        res.send({status: -1,msg: "please send all required fields"})
     }
     require(`./gateways/${gateway}`).getInfo(auth, (result) => {
         if (result) {
             // if result is success
             if (result.status) {
                 if (result.status === 200) {
-                    res.send({
-                        "status": 1,
-                        "msg": result,
-                        "success": true
-                    })
+                    res.send({"status": 1,"msg": result,"success": true})
                 } else {
-                    res.send({
-                        "status": -2,
-                        "msg": result,
-                        "success": false
-                    })
+                    res.send({"status": -2,"msg": result,"success": false})
                 }
             }
             // when something wrong 
             else {
-                res.send({
-                    "status": -3,
-                    "msg": result,
-                    "success": false
-                })
+                res.send({"status": -3,"msg": result,"success": false})
             }
         }
     })
@@ -119,7 +92,6 @@ app.post('/getInfo', (req, res) => {
 app.get('/gateways', (req, res) => {
     res.send(gateways)
 })
-
 
 
 

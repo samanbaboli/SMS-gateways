@@ -18,7 +18,7 @@ Add your web service information to ./gateways/gateways.json
 	        "AuthType" : 1 
     	} 
 ```
-Some of web services just need a token to authorize and some of them need username and password, you can specify Auth type with below auth types :
+Some of web services just need a token to authorize and some of them need username and password, you can specify Auth type with this numbers :
 
 | Number  | Type |
 | ------------- | ------------- |
@@ -35,6 +35,21 @@ Add YourWebserviceName.js to './gateways' - it name must be that name what you a
  You can use ./gateways/sample.js 
  
  ## How to use?
+ 
+ 1. Clone this project
+ ```
+ git clone https://github.com/samanbaboli/smsGateways.git
+ ```
+2. go to project directory
+3. install dependencies 
+```
+npm install
+```
+4. and after that
+```
+node index.js 
+```
+
  * Send SMS
  
 Type : POST

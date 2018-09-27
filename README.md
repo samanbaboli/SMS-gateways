@@ -1,7 +1,5 @@
 # Sms Gateways
-Using this Node.js REST-full API you'll be able to send SMS using multiple services.
-
-For example if you're a SAAS company maybe your customers want to integrate their sms panel with your platfrom and use it for sending SMS.
+Using this Node.js REST-ful API you'll be able to send SMS using multiple services.
 
 ### Add your web service:
 
@@ -18,7 +16,7 @@ Add your web service information to ./gateways/gateways.json
 	        "AuthType" : 1 
     	} 
 ```
-Some of web services just need a token to authorize and some of them need username and password, you can specify Auth type with this numbers :
+Some of web services just need a token to authorize and some of them need username and password, you can specify Auth type with this numbers:
 
 | Number  | Type |
 | ------------- | ------------- |
@@ -40,12 +38,12 @@ Add YourWebserviceName.js to './gateways' - it name must be that name what you a
  ```
  git clone https://github.com/samanbaboli/SMS-gateways.git
  ```
-2. go to project directory
-3. install dependencies 
+2. Go to project directory
+3. Install dependencies 
 ```
 npm install
 ```
-4. and after that
+4. Then
 ```
 node index.js 
 ```

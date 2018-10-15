@@ -36,6 +36,7 @@ app.post('/sendSms', (req, res) => {
             status: -1,
             msg: "Please send all required parametrs"
         })
+        return
     }
     //TODO check gateway is exsist or not
 
@@ -87,6 +88,9 @@ app.post('/getInfo', (req, res) => {
         }
     })
 })
+
+
+
 
 // gateways list 
 app.get('/gateways', (req, res) => {

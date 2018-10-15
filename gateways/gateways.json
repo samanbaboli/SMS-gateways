@@ -1,13 +1,22 @@
 {
-    "services": {
-    	"kavenegar" : {
-	    	"name": "kavenegar",
-	    	"localName" : "کاوه نگار",
-	        "developer": "@SamanBaboli",
-	        "website": "http://kavenegar.com",
-	        "logo": "/logos/kavenegar.png",
-	        "country": "IR",
-	        "AuthType" : 1
-    	}
-    }
+	"services": {
+		"kavenegar": {
+			"name": "kavenegar",
+			"localName": "کاوه نگار",
+			"developer": "@SamanBaboli",
+			"website": "http://kavenegar.com",
+			"logo": "/logos/kavenegar.png",
+			"country": "IR",
+			"AuthType": 1
+		},
+		"sms_ir": {
+			"name": "sms_ir",
+			"localName": "ایده پردازان",
+			"developer": "@alijalali",
+			"website": "https://www.sms.ir/",
+			"logo": "/logos/smsir-logo.png",
+			"country": "IR",
+			"AuthType": 3
+		}
+	}
 }

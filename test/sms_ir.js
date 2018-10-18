@@ -1,22 +1,20 @@
-const chai = require('chai');
 const request = require('request');
-const expect = chai.expect;
+const expect = require('chai').expect;
 
 
-let username = '09227112462';
-let password = '9583';
-let message = 'salam test melipayamak';
-let sender = '50001060657620';
-let receptor = '09032112028';
-let gateway = 'melipayamak';
+let api_key = '21c69aca3a1e46feb189aca';
+let security_code = '##@##';
 let auth = {
-    username,
-    password
+    api_key,
+    security_code
 }
+let messages = ['salam test sms_ir'];
+let sender = '50002015832245';
+let numbers = ['09032112028']
+let gateway = 'sms_ir'
 
 
-
-describe('TEST MELLI PAYAMAK SERVICE', () => {
+describe('TEST SMS_IR SMS SERVICE', () => {
 
     it('test sending sms', (done) => {
 
@@ -24,12 +22,15 @@ describe('TEST MELLI PAYAMAK SERVICE', () => {
 
             url: 'http://localhost:3000/sendSms',
             form: {
+
                 auth,
-                message,
+                message:messages,
                 sender,
-                receptor,
+                receptor: numbers,
                 gateway
+
             }
+
         }, (err, res, body) => {
 
             if(err){
@@ -41,22 +42,24 @@ describe('TEST MELLI PAYAMAK SERVICE', () => {
 
                 expect((JSON.parse(body))['status']).have.to.equal(1);
                 done()
-            }            
+                
+            }
         })
+
     })
 
-
-    it('test get sms info',(done)=>{
+    it('test getting info', (done) => {
 
         request.post({
 
             url: 'http://localhost:3000/getInfo',
             form: {
+
                 auth,
                 gateway
             }
         }, (err, res, body) => {
-            
+
             if(err){
 
                 throw Error('eroor')
@@ -65,7 +68,10 @@ describe('TEST MELLI PAYAMAK SERVICE', () => {
             }else{
                 expect((JSON.parse(body))['status']).have.to.equal(1);
                 done()
-            }            
+            }
+
+
         })
     })
+
 })

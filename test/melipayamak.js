@@ -3,11 +3,11 @@ const request = require('request');
 const expect = chai.expect;
 
 
-let username = '09227112462';
-let password = '9583';
+let username = 'YOUR USERNAME';
+let password = 'YOUR PASSWORD';
 let message = 'salam test melipayamak';
-let sender = '50001060657620';
-let receptor = '09227112462';
+let sender = 'YOUR SENDING NUMBER';
+let receptor = 'YOUR TEST NUMBER';
 let gateway = 'melipayamak';
 let auth = {
     username,

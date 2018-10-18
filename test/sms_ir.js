@@ -2,15 +2,15 @@ const request = require('request');
 const expect = require('chai').expect;
 
 
-let api_key = '21c69aca3a1e46feb189aca';
-let security_code = '##@##';
+let api_key = 'YOUR API KEY';
+let security_code = 'YOUR SECURITY CODE';
 let auth = {
     api_key,
     security_code
 }
 let messages = ['salam test sms_ir'];
-let sender = '50002015832245';
-let numbers = ['09227112462']
+let sender = 'YOUR SENDING NUMBER';
+let numbers = ['YOUR TEST NUMBER']
 let gateway = 'sms_ir'
 
 

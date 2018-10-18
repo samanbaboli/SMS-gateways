@@ -14,9 +14,9 @@ const request = require('request')
   @param {function} callback
 **/
 
-module.exports.sendSms = (apikey, message, sender, receptor, callback) => {
+module.exports.sendSms = (auth, message, sender, receptor, callback) => {
         request.post({
-            url: `https://api.kavenegar.com/v1/${apikey}/sms/send.json`,
+            url: `https://api.kavenegar.com/v1/${auth}/sms/send.json`,
             form: {
                 receptor: receptor, // required
                 message: message, // required
@@ -26,9 +26,9 @@ module.exports.sendSms = (apikey, message, sender, receptor, callback) => {
             if (!err) {
                 body = JSON.parse(body)
                 body.status = 200
-                callback(body)
+                callback({status:200,result:'successfully sent message'})
             } else {
-                callback(err)
+                callback('Error in getting and passing data')
             }
         })
     },
@@ -43,11 +43,13 @@ module.exports.sendSms = (apikey, message, sender, receptor, callback) => {
             url: `https://api.kavenegar.com/v1/${apikey}/account/info.json`,
         }, function(err, httpResponse, body) {
             if (!err) {
+                
                 body = JSON.parse(body)
+                let value=body.entries.remaincredit
                 body.status = 200
-                callback(body)
+                callback({status:200,result:`${value/10} تومان`})
             } else {
-                callback(err)
+                callback({ status: 401, result: 'error in getting data successfully' })
             }
         })
     }

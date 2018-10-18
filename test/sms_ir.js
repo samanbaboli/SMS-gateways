@@ -10,7 +10,7 @@ let auth = {
 }
 let messages = ['salam test sms_ir'];
 let sender = '50002015832245';
-let numbers = ['09032112028']
+let numbers = ['09227112462']
 let gateway = 'sms_ir'
 
 

@@ -7,7 +7,7 @@ let username = '09227112462';
 let password = '9583';
 let message = 'salam test melipayamak';
 let sender = '50001060657620';
-let receptor = '09032112028';
+let receptor = '09227112462';
 let gateway = 'melipayamak';
 let auth = {
     username,

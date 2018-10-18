@@ -44,9 +44,9 @@ const sendSms=(auth, message, sender, receptor, callback)=>{
         data: {
             username,
             password,
-            sender,
-            receptor,
-            message
+            from:sender,
+            to:receptor,
+            text:message
         }
     })
     .then((result)=>{

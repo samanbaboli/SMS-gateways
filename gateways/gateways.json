@@ -18,8 +18,7 @@
 			"country": "IR",
 			"AuthType": 3
 		},
-		"melipayamak":{
-
+		"melipayamak": {
 			"name": "melipayamak",
 			"localName": "ملی پیامک",
 			"developer": "@ali5991jalali",

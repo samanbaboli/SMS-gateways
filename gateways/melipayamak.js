@@ -1,7 +1,19 @@
+/**
+	melipayamak sms gateway
+	Author : Raychat
+**/
+
+// for make http or https requests
+
 const axios = require('axios');
-const request=require('request')
+const request = require('request')
 
 
+
+/** 
+  @param {object} auth
+  @param {function} callback
+**/
 const getInfo = (auth, callback) => {
 
     let username = auth.username;
@@ -29,12 +41,19 @@ const getInfo = (auth, callback) => {
 }
 
 
+/** 
+  @param {object} auth
+  @param {string} message
+  @param {string} sender
+  @param {string} receptor
+  @param {function} callback
+**/
 
-const sendSms=(auth, message, sender, receptor, callback)=>{
+const sendSms = (auth, message, sender, receptor, callback) => {
 
-    let username=auth.username;
-    let password=auth.password;
-    
+    let username = auth.username;
+    let password = auth.password;
+
 
 
     axios({
@@ -44,25 +63,25 @@ const sendSms=(auth, message, sender, receptor, callback)=>{
         data: {
             username,
             password,
-            from:sender,
-            to:receptor,
-            text:message
+            from: sender,
+            to: receptor,
+            text: message
         }
     })
-    .then((result)=>{
+        .then((result) => {
 
-        let data=result.data;
-        
+            let data = result.data;
 
-        if(data['RetStatus'] == 1 && data['StrRetStatus']=='Ok'){
-            callback({ status: 200, message: 'successfully sent message' })
-        }else{
-            callback({ status: 401, message: 'error in sending...' })
-        }
-    })
-    .catch(err=>{
-        callback('Error in getting and passing data')
-    })
+
+            if (data['RetStatus'] == 1 && data['StrRetStatus'] == 'Ok') {
+                callback({ status: 200, message: 'successfully sent message' })
+            } else {
+                callback({ status: 401, message: 'error in sending...' })
+            }
+        })
+        .catch(err => {
+            callback('Error in getting and passing data')
+        })
 
 }
 

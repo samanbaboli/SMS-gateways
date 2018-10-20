@@ -1,4 +1,15 @@
+/**
+	sms_ir sms gateway
+	Author : Raychat
+**/
+
 const axios = require('axios')
+
+/** 
+  @param {string} api_key
+  @param {string} security_code
+**/
+
 const get_token = (api_key, security_code) => {
 
     return new Promise((resolve, reject) => {
@@ -25,6 +36,14 @@ const get_token = (api_key, security_code) => {
             })
     })
 }
+
+/** 
+  @param {array} messages
+  @param {string} token
+  @param {array} numbers
+  @param {string} sender
+**/
+
 
 const send = (messages, numbers, token, sender) => {
     return new Promise((resolve, reject) => {
@@ -62,6 +81,15 @@ const send = (messages, numbers, token, sender) => {
     })
 }
 
+/** 
+   @param {array} messages
+   @param {object} auth
+   @param {array} numbers
+   @param {string} sender
+   @param {function} callback
+ **/
+
+
 const sendSms = async (auth, messages, sender, numbers, callback) => {
 
     //devide auth to api_key and security_code
@@ -82,38 +110,44 @@ const sendSms = async (auth, messages, sender, numbers, callback) => {
     }
 }
 
+/** 
+   @param {object} auth
+   @param {function} callback
+ **/
 
-const getInfo=async (auth,callback)=>{
 
-    let api_key =auth['api_key'];
+
+const getInfo = async (auth, callback) => {
+
+    let api_key = auth['api_key'];
     let security_code = auth['security_code'];
-    let token=await get_token(api_key, security_code);
-    
+    let token = await get_token(api_key, security_code);
+
     axios({
-        
-        method:'get',
-        url:'http://RestfulSms.com/api/credit',
-        headers:{'x-sms-ir-secure-token':token}
+
+        method: 'get',
+        url: 'http://RestfulSms.com/api/credit',
+        headers: { 'x-sms-ir-secure-token': token }
 
     })
-    .then(result=>{
+        .then(result => {
 
-        return result.data
-    })
-    .then((data)=>{
+            return result.data
+        })
+        .then((data) => {
 
-        if(data['IsSuccessful']){
-            callback({ status: 200, 'result': `${data['Credit']} عدد` }) 
-        }else{
-            callback({ status: 401, result: 'error in getting data successfully' })
-        }
+            if (data['IsSuccessful']) {
+                callback({ status: 200, 'result': `${data['Credit']} عدد` })
+            } else {
+                callback({ status: 401, result: 'error in getting data successfully' })
+            }
 
-    })
-    .catch(err=>{
+        })
+        .catch(err => {
 
-        callback('Error in getting and passing data')
-    })
-    
+            callback('Error in getting and passing data')
+        })
+
 }
 
 
